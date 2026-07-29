@@ -1,5 +1,9 @@
 ﻿using ScBank;
 
+Cliente clienteObjeto = new Cliente();
+clienteObjeto.Preencher();
+clienteObjeto.Imprimir();
+
 var contaDoArthur = new Conta("Arthur");
 
 contaDoArthur.Depositar(1000);
