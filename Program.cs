@@ -1,5 +1,6 @@
 ﻿﻿using ScBank;
 
+
 Funcionario funcionarioObj  = new Funcionario();
 funcionarioObj.Preencher();
 funcionarioObj.Imprimir();
