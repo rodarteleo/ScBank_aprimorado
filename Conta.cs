@@ -5,6 +5,7 @@ namespace ScBank
         //atributos
         public int Numero { get;  set; }
         public Cliente Titular { get; set; }
+        public Funcionario Gerente { get; set; }
         private decimal saldo;
 
         private List<Transacao> transacoes = new List<Transacao>();
@@ -14,9 +15,10 @@ namespace ScBank
         {
             Numero = new Random().Next();
         }
-        public Conta(Cliente titular)
+        public Conta(Cliente titular, Funcionario gerente)
         {
             Titular = titular;
+            Gerente = gerente;
             Numero = new Random().Next();
         }
 
