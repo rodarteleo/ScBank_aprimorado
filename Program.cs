@@ -1,4 +1,4 @@
-﻿﻿using ScBank;
+﻿﻿﻿using ScBank;
 
 
 Funcionario funcionarioObj  = new Funcionario();
@@ -21,7 +21,41 @@ clienteObj2.Preencher();
 clienteObj2.Imprimir();
 
 
+// Oq Funcionario.cs e Cliente.cs  Tem em comum? 
+// São filhos de Pessoa.cs 
 
+//quero criar uma lista de Clientes e de Funcionarios, como fazer ? 
+
+//exemplo do uso de polimorfismo (a ideia central é usar o pai como referencia)
+List<Pessoa> pessoas = new List<Pessoa>();
+pessoas.Add(clienteObj);
+pessoas.Add(clienteObj2);
+pessoas.Add(funcionarioObj);
+
+Pessoa pessoaCliente = clienteObj;
+Pessoa pessoaFuncionario = funcionarioObj;
+
+Cliente cliente2 = (Cliente)pessoaCliente;
+
+Console.WriteLine("Endereco de cliente recuperado é " + cliente2.End);
+
+Console.WriteLine("Matricula do funcionario é : "+ ((Funcionario)pessoaFuncionario).NumeroMatricula);
+
+foreach (var pessoa in pessoas)
+{
+    pessoa.Imprimir();
+
+    if ( pessoa.GetType() == typeof(Cliente))
+    {
+        Console.WriteLine($"{pessoa.Nome} é um cliente e tem o endereço: " + ((Cliente)pessoa).End);
+    }
+    else
+    {
+        Console.WriteLine($"{pessoa.Nome} Não é um cliente, é um funcionario e tem a matricula: " + ((Funcionario)pessoa).NumeroMatricula);
+    }
+}
+
+//retornamos ao sistema bancario 
 
 var contaDoClienteObj = new Conta(clienteObj, funcionarioObj);
 
